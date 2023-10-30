@@ -1,0 +1,53 @@
+{% extends "layouts/base.html" %} {% load static %} {% block title %} Home Page
+{% endblock %} {% block 'content' %} {% endblock %} {% block 'body' %}
+
+<form method="post">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label class="form-label">Product Title</label>
+    <input
+      type="text"
+      name="title"
+      class="form-control"
+      aria-describedby="emailHelp"
+    />
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Product Description</label>
+    <input
+      type="text"
+      name="description"
+      class="form-control"
+      aria-describedby="emailHelp"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Product Price</label>
+    <input type="number" name="price" class="form-control" />
+  </div>
+  <!-- <div class="mb-3">
+        <label class="form-label">Product Image</label>
+        <input type="text" name="image" class="form-control" aria-describedby="emailHelp">
+    </div> -->
+  <div class="mb-3">
+    <label class="form-label">Product Image</label>
+    <input type="file" name="image" class="form-control" accept="image/*" />
+  </div>
+  <div class="mb-3">
+    <label class="form-label">in_stock</label>
+
+    <div class="form-check">
+      <input class="form-check-input" type="radio" value="y" name="in_stock" />
+      <label class="form-check-label"> YES </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" value="n" name="in_stock" />
+      <label class="form-check-label"> NO </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<script src="{% static 'store/js/script.js' %}"></script>
+
+{% endblock %}

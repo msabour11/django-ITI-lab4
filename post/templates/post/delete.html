@@ -1,0 +1,16 @@
+
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} delete Post {% endblock %}
+{% block 'content' %} {% endblock %} {% block 'body' %}
+<h1 class="post-title">Delete Your Post</h1>
+<form method="post" enctype="multipart/form-data" class="my-4">
+
+    {% csrf_token %} 
+    <h1 class="form-label">Are you want to delete post?</h1>
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+<a class="btn btn-dark" href="{{ post.get_list_url }}">Cancel </a>
+<script src="{% static 'store/js/script.js'%}"></script>
+{% endblock %}
+</h1>

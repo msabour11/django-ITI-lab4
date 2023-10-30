@@ -1,0 +1,9 @@
+{% extends "layouts/base.html" %} {% load static %} {% block title %} login {% endblock %}
+{% block 'content' %} {% endblock %} {% block 'body' %}
+<h1 class="post-title">loged out Successfully</h1>
+<!-- <form method="post" enctype="multipart/form-data" class="my-4">
+    {% csrf_token %} {{form}}
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form> -->
+<script src="{% static 'store/js/script.js'%}"></script>
+{% endblock %}

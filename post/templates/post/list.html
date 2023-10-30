@@ -1,0 +1,35 @@
+{% extends "layouts/base.html" %} {% load static %} {% block title %} Home Page
+{% endblock %} {% block 'content' %} {% endblock %} {% block 'body' %}
+
+<div class="container">
+  <a href="{% url 'create' %}" class="btn btn-dark">Create Post</a>
+</div>
+
+<div class="row">
+  {% for post in posts %}
+  <div class="col-4">
+    <div class="card" style="width: 20rem">
+      <img
+        src="{{ post.get_image_url}}"
+        class="card-img-top"
+        alt="..."
+        width="200"
+        height="200"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{post.title}}</h5>
+        <p class="card-text">{{ post.body}}</p>
+        <a href="{{post.get_detail_url}}" class="btn btn-primary"
+          >MOre Details</a
+        >
+        <a href="{{post.get_edit_url}}" class="btn btn-warning">Edit</a>
+        <a href="{{post.get_delete_url}}" class="btn btn-danger">Delete</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<script src="{% static 'store/js/script.js' %}"></script>
+
+{% endblock %}

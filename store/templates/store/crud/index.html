@@ -1,0 +1,40 @@
+{% extends "layouts/base.html" %} {% load static %} {% block title %} Home Page
+{% endblock %} {% block 'content' %} {% endblock %} {% block 'body' %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <a href="{% url 'create' %}" class="btn btn-danger">Add product</a>
+      <a href="{% url 'create_form' %}" class="btn btn-danger"
+        >Add product with form</a
+      >
+    </div>
+  </div>
+</div>
+<div class="row">
+  {% for product in products_db %}
+  <div class="col-md-4">
+    <div class="card mb-4 product_card">
+      <img
+        src="{{ product.get_image }}"
+        class="card-img-top"
+        alt="..."
+        width="200"
+        height="200"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ product.title }}</h5>
+        <a href="{{ product.get_show_url }}" class="btn btn-primary"
+          >More Details</a
+        >
+        <a href="{{ product.delete_product }}" class="btn btn-danger">Delete</a>
+        <a href="{{ product.get_edit_url }}" class="btn btn-secondary">Edit</a>
+      </div>
+    </div>
+  </div>
+  {% if forloop.counter|divisibleby:3 and not forloop.last %}
+</div>
+<div class="row">{% endif %} {% endfor %}</div>
+<script src="{% static 'store/js/script.js' %}"></script>
+
+{% endblock %}

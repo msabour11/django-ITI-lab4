@@ -1,0 +1,32 @@
+{% extends "layouts/base.html" %} {% load static %} {% block title %} Home Page
+{% endblock %} {% block 'content' %} {% endblock %} {% block 'body' %}
+
+<div class="container">
+  <a href="{% url 'create' %}" class="btn btn-dark">create category</a>
+</div>
+
+<div class="row">
+  <div class="col-3">
+    <div class="card" style="width: 18rem">
+      <img
+        src="{{ category.get_image_url}}"
+        class="card-img-top"
+        alt="..."
+        width="200"
+        height="200"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{category.name}}</h5>
+        <p class="card-text">{{category.description}}</p>
+        <a href="{{category.get_home_url}}" class="btn btn-warning"
+          >Back To categories</a
+        >
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{% static 'store/js/script.js' %}"></script>
+
+  {% endblock %}
+</div>

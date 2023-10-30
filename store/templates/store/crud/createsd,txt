@@ -1,0 +1,41 @@
+{% extends "layouts/base.html" %}
+
+{% load static %}
+
+{% block title %} Add product {% endblock %}
+
+{% block 'content' %} {% endblock %}
+
+{% block 'body' %}
+
+<form method="post" enctype="multipart/form-data" class="my-4">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="{{ form.title.id_for_label }}">Product Title</label>
+        {{ form.title }}
+    </div>
+    <div class="form-group">
+        <label for="{{ form.description.id_for_label }}">Product Description</label>
+        {{ form.description }}
+    </div>
+    <div class="form-group">
+        <label for="{{ form.price.id_for_label }}">Product Price</label>
+        {{ form.price }}
+    </div>
+    <div class="form-group">
+        <label for="{{ form.image.id_for_label }}">Product Image</label>
+        {{ form.image }}
+    </div>
+    <div class="form-group">
+        <label for="{{ form.in_stock.id_for_label }}">In Stock</label>
+        {{ form.in_stock }}
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Category</label>
+        {{ form.cat }}
+    </div>
+ 
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

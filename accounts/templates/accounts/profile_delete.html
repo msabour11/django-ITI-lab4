@@ -1,0 +1,17 @@
+{% extends "layouts/base.html" %} {% load static %} {% block title %} register {% endblock %}
+{% block 'content' %} {% endblock %} {% block 'body' %}
+<h1>Delete Your Profile</h1>
+
+<p>Are you sure you want to delete your profile, {{ user.username }}?</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Yes, I want to delete my profile</button>
+</form>
+
+<a href="{% url 'profile' %}">Cancel</a>
+
+
+<script src="{% static 'store/js/script.js'%}"></script>
+{% endblock %}
+<!-- </h1> -->

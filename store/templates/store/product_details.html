@@ -1,0 +1,26 @@
+{% extends "layouts/base.html" %} 
+
+{% load static %}
+{%block title %} Product Details {% endblock %}
+
+{% block 'body' %}
+<div class="container mt-3">
+    <h1>Product Detail</h1>
+    <div class="card text-center w-50 mx-auto">
+      <img
+        src="{% static 'store/images/'|add:product_detail.image %}"
+        class="card-img-top"
+        alt="{{ product_detail.title }}"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ product_detail.title }}</h5>
+        <p class="card-text">Price: ${{ product_detail.price }}</p>
+
+        <p class="card-text">{{ product_detail.description }}</p>
+      </div>
+      <a href="{% url 'home' %}" class="btn btn-primary mt-3"
+        >Back to Products</a
+      >
+    </div>
+  </div>
+{% endblock %}

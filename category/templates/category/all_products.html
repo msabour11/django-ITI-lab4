@@ -1,0 +1,14 @@
+{% extends "layouts/base.html" %} {% load static %} {% block title %} Home Page
+{% endblock %} {% block 'content' %} {% endblock %} {% block 'body' %}
+
+<h2>{{ category.name }}</h2>
+<ul>
+  {% for product in products %}
+  <li>{{ product.title }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}
+
+<script src="{% static 'store/js/script.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+
+
+
+
+
+{% extends "layouts/base.html" %}
+
+{% load static %}
+{% block title %}Product Details{% endblock %}
+
+{% block 'content' %}
+<div class="container mt-3">
+    <h1>Product Detail</h1>
+    <div class="card text-center w-50 mx-auto">
+        <img
+            src="{{ product_detail.get_image }}"
+            class="card-img-top"
+            alt="{{ product_detail.title }}"
+        />
+        <div class="card-body">
+            <h5 class="card-title">{{ product_detail.title }}</h5>
+            <p class="card-text">Price: ${{ product_detail.price }}</p>
+            <p class="card-text">{{ product_detail.description }}</p>
+            <h3 style="color:green" class="card-title">Category: {{ product_detail.cat.name }}</h3>
+            {% if product_detail.in_stock == 'y' %}
+                <p class="card-text">In Stock: YES</p>
+            {% else %}
+                <p class="card-text">In Stock: NO</p>
+            {% endif %}
+        </div>
+        <a href="{% url 'index_db' %}" class="btn btn-primary mt-3">Back To Products</a>
+    </div>
+</div>
+<h1>Products in this category</h1>
+<ul>
+    {% for prod in product_detail.cat.products.all %}
+        {% if prod.id != product_detail.id %}
+            <li><a href="{{ prod.get_show_url }}">{{ prod.title }}</a></li>
+        {% endif %}
+    {% endfor %}
+</ul>
+</div>
+<script src="{% static 'store/js/script.js' %}"></script>
+
+{% endblock %}

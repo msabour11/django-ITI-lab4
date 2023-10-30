@@ -1,0 +1,9 @@
+{% extends "layouts/base.html" %} {% load static %} {% block title %} edit
+category {% endblock %} {% block 'content' %} {% endblock %} {% block 'body' %}
+
+<form method="post" enctype="multipart/form-data" class="my-4">
+  {% csrf_token %} {{form}}
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<script src="{% static 'store/js/script.js'%}"></script>
+{% endblock %}
